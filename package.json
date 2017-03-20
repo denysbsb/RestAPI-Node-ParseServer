@@ -1,7 +1,7 @@
 {
   "name": "@denysfontenele/restparse",
   "description": "ParseREST API with Node.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "homepage": "https://github.com/denysbsb/RestParse",
   "license": "MIT",
   "author": {
