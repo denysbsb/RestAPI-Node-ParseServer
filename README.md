@@ -49,3 +49,15 @@ restparse.createUser(userInfo, function(err, res, body, success) {
   console.log('user created with session token = ', body.sessionToken);
   console.log('object id = ', body.objectId);
 });
+```
+#### getUser (objectId, params, callback)
+
+Gets a user info based on the `objectId` (user id). The `params` is currently unused but is there for a
+future use. You can pass in the callback function as the second parameter.
+
+```js
+restparse.getUser('<object-id>', function(err, res, body, success) {
+  console.log('user info = ', body);
+});
+```
+
