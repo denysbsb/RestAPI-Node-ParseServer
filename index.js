@@ -1,1 +1,1 @@
-module.exports = require('./lib/restdenys');
+module.exports = require('./lib/restParse');
