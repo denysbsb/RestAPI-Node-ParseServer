@@ -8,12 +8,11 @@ npm install @denysfontenele/restparse
 ```js
 var restparse = require('restparse');
 
-// instantiate
 var config = {
   serverUrl: 'http://localhost:1337',
   applicationId: 'myAppId',
-  masterKey: 'myMasterKey', // optional
-  mountPath: '/parse' // optional ("/parse" by default)
+  masterKey: 'myMasterKey', 
+  mountPath: '/parse'
 };
 
 var restparse = new restparse(config);
