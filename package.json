@@ -1,8 +1,8 @@
 {
-  "name": "@denysbsb/restParse",
+  "name": "@denysfontenele/restParse",
   "description": "ParseREST API with Node.js",
   "version": "1.0.0",
-  "homepage": "https://github.com/denysbsb/RestAPI-Node-ParseServer",
+  "homepage": "https://github.com/denysbsb/RestParse",
   "license": "MIT",
   "author": {
     "name": "Denys Fontenele",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/denysbsb/RestAPI-Node-ParseServer.git"
+    "url": "git://github.com/denysbsb/RestParse.git"
   },
   "main": "./index.js",
   "dependencies": {
