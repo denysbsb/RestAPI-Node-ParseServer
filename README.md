@@ -61,3 +61,75 @@ restparse.getUser('<object-id>', function(err, res, body, success) {
 });
 ```
 
+#### loginUser (username, password, callback)
+
+Log in a user. This will give you a user's `sessionToken` that you can use in `updateUser` and `deleteUser`, and other API calls that may need a `sessionToken`.
+
+```js
+restparse.loginUser('username', 'my secret password', function(err, res, body, success) {
+  console.log('user logged in with session token = ', body.sessionToken);
+});
+```
+
+#### getCurrentUser (callback)
+
+Get active user based on the current`sessionToken`. Use `loginUser` or `createUser` to obtain the session token. You can also use this function to validate a `sessionToken`.
+
+```js
+restparse.sessionToken = 'le session token';
+restparse.getCurrentUser(function(err, res, body, success) {
+  if (success)
+    console.log('Session token is valid for user ', body.username);
+});
+```
+
+#### updateUser (objectId, data, callback)
+
+Updates a user object (if that wasn't obvious). This requires a sessionToken received from `loginUser` or `createUser`. If successful, body will contain the `updatedAt` value.
+
+```js
+restparse.sessionToken = 'le session token';
+restparse.updateUser('<object-id>', {name: 'new name'}, function(err, res, body, success) {
+  console.log('updated at = ', body.updatedAt);
+});
+```
+
+#### deleteUser (objectId, data, callback)
+
+Deletes a user. Like `updateUser()`, this needs a `sessionToken`.
+
+```js
+restparse.sessionToken = '<user-seassion-token>';
+restparse.deleteUser('<object-id>', function(err, res, body, success) {
+  if (success)
+    console.log('deleted!');
+  else
+    console.log('failed!');
+});
+```
+
+#### getUsers (params, callback)
+
+Returns an array of users. The `params` parameter can be an object containing the query options as described [here](https://parse.com/docs/rest#queries-basic). Note that unlike the Parse API Doc, you do not have to pass in strings for the parameter values. This is all taken care of for you.
+
+If you do not want to pass in some query parameters, you can set the callback as the first parameter.
+
+The `body` in the callback is an array of the returned objects.
+
+```js
+// get all users (no parameters)
+restparse.getUsers(function(err, res, body, success) {
+  console.log('all users = ', body);
+});
+
+// query with parameters
+var params = {
+  where: { gender: "female" },
+  order: '-name'
+};
+restparse.getUsers(params, function(err, res, body, success) {
+  console.log('female users = ', body);
+});
+```
+
+
